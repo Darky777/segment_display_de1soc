@@ -1,6 +1,6 @@
 module hex_to_segment_convert_de1soc (
-    input clk_i ,    // Clock
-    input rst_n_i ,  // Asynchronous reset active low
+    input clk_i ,
+    input rst_n_i ,
     input [3:0] hex_symbol_i ,
     output logic [6:0] segment_symbol_o
 );
@@ -23,9 +23,9 @@ module hex_to_segment_convert_de1soc (
                 4'ha : segment_symbol_o <= 7'b1110111 ;
                 4'hb : segment_symbol_o <= 7'b1111100 ;
                 4'hc : segment_symbol_o <= 7'b0111001 ;
-                4'hd : segment_symbol_o <= 7'b1011110 ; // Hexadecimal D
-                4'he : segment_symbol_o <= 7'b1111001 ; // Hexadecimal E
-                4'hf : segment_symbol_o <= 7'b1110001 ; // Hexadecimal F
+                4'hd : segment_symbol_o <= 7'b1011110 ;
+                4'he : segment_symbol_o <= 7'b1111001 ;
+                4'hf : segment_symbol_o <= 7'b1110001 ;
             endcase
         end
     end

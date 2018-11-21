@@ -1,8 +1,8 @@
 module avalon_hex_to_seg_de1soc #(
     parameter NUM_SEGMENT = 6
 ) (
-    input clk , // Clock
-    input rst_n , // Asynchronous reset active low
+    input clk ,
+    input rst_n ,
 
     input [ 2:0] avms_address_i ,
     input [ 3:0] avms_byteenable_i ,
