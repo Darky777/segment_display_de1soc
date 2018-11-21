@@ -20,7 +20,7 @@ module avalon_hex_to_seg_de1soc #(
         if( !rst_n ) begin
            data_to_out <= '0;
         end else if ( avms_write_i ) begin
-            for (int word_ind = 0; word_ind < 7; word_ind++) begin
+            for (int word_ind = 0; word_ind < NUM_SEGMENT; word_ind++) begin
                 if(avms_address_i == word_ind) begin
                     for (int byte_ind = 0; byte_ind < 4; byte_ind++) begin
                         data_to_out[word_ind][byte_ind] <= avms_byteenable_i[byte_ind] ? avms_writedata_s[byte_ind] : data_to_out[word_ind][byte_ind];
