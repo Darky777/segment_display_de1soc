@@ -34,7 +34,7 @@ module avalon_hex_to_seg_de1soc #(
         for (genvar seg_ind = 0; seg_ind < NUM_SEGMENT; seg_ind++) begin
                 hex_to_segment_convert_de1soc i_hex_to_segment_convert_de1soc (
                     .clk_i ( clk ) ,
-                    .rst_n_i ( rst_n_i ) ,
+                    .rst_n_i ( rst_n ) ,
 
                     .hex_symbol_i ( data_to_out[seg_ind][0][3:0] ) ,
                     .segment_symbol_o( segment_symbol_s[seg_ind] )
