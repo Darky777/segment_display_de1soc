@@ -1,11 +1,14 @@
 # segment_display_de1soc
 ## Register map
 
-|   Address   |  byte [3] | byte [2] | byte [1] | byte [0] |
-|-------------|-----------|----------|----------|----------|
-|   `0x000`   |   Dummy   |   Dummy  |   Dummy  |  DIGIT_0 |
-|   `0x004`   |   Dummy   |   Dummy  |   Dummy  |  DIGIT_1 |
-|   `0x008`   |   Dummy   |   Dummy  |   Dummy  |  DIGIT_2 |
-|   `0x00c`   |   Dummy   |   Dummy  |   Dummy  |  DIGIT_3 |
-|   `0x010`   |   Dummy   |   Dummy  |   Dummy  |  DIGIT_4 |
-|   `0x014`   |   Dummy   |   Dummy  |   Dummy  |  DIGIT_5 |
+|   Address   |     Desc    |
+|-------------|-------------|
+|   `0x000`   |   DIGIT_0   |
+|   `0x001`   |   DIGIT_1   |
+|   `0x002`   |   DIGIT_2   |
+|   `0x003`   |   DIGIT_3   |
+|   `0x004`   |   DIGIT_4   |
+|   `0x005`   |   DIGIT_5   |
+|   `0x006`   |    DUMMY    |
+|   `0x007`   |    DUMMY    |
+
