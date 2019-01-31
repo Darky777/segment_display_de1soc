@@ -9,7 +9,7 @@ module avalon_hex_to_seg_de1soc #(
     input        avms_write_i ,
     input [31:0] avms_writedata_i ,
 
-    output [NUM_SEGMENT*6 -1:0] segment_symbol_o
+    output [NUM_SEGMENT*7 -1:0] segment_symbol_o
 );
     logic [3:0][7:0] avms_writedata_s;
     logic [NUM_SEGMENT - 1:0][3:0][7:0] data_to_out;
