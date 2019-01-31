@@ -1,7 +1,7 @@
 module hex_to_segment_convert_de1soc (
     input clk_i ,
     input rst_n_i ,
-    input [3:0] hex_symbol_i ,
+    input [7:0] hex_symbol_i ,
     output logic [6:0] segment_symbol_o
 );
 

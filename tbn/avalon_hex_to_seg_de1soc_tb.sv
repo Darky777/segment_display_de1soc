@@ -7,15 +7,12 @@ module avalon_hex_to_seg_de1soc_tb;
     --   Signals declaration
     ------------------------------------------------------------------------------*/
 
-
-
     bit clk;
     bit rst_n;
     bit [2:0] avms_address_i;
-    bit [3:0] avms_byteenable_i;
     bit avms_write_i;
-    bit [31:0] avms_writedata_i;
-    logic [6*6-1:0] segment_symbol_o;
+    bit [7:0] avms_writedata_i;
+    logic [5:0][6:0] segment_symbol_o;
 
     /*------------------------------------------------------------------------------
     --  DUT
@@ -26,13 +23,11 @@ module avalon_hex_to_seg_de1soc_tb;
         .rst_n ( rst_n ) ,
 
         .avms_address_i ( avms_address_i ) ,
-        .avms_byteenable_i( avms_byteenable_i ) ,
         .avms_write_i ( avms_write_i ) ,
         .avms_writedata_i ( avms_writedata_i ) ,
 
         .segment_symbol_o ( segment_symbol_o )
     );
-
 
     /*------------------------------------------------------------------------------
     --  TASKS
@@ -41,14 +36,12 @@ module avalon_hex_to_seg_de1soc_tb;
         repeat (number) @(posedge clk) #(time_cycle/10.0);
     endtask : cycles
 
-    task write_data (input int addr,input bit [31:0] data,input bit [3:0] byte_enable);
+    task write_data (input int addr,input bit [7:0] data);
         avms_write_i = 1;
         avms_address_i = addr;
-        avms_byteenable_i = byte_enable;
         avms_writedata_i = data;
         cycles(1,clk,CYCLE);
         avms_write_i = 0;
-        avms_byteenable_i = 0;
     endtask : write_data
 
     /*------------------------------------------------------------------------------
@@ -62,7 +55,8 @@ module avalon_hex_to_seg_de1soc_tb;
         rst_n = 1;
         cycles(5,clk,CYCLE);
         for (int i = 0; i < 6; i++) begin
-            write_data(i,i,4'h2);
+            write_data(i,i + 'h20);
+            cycles(5,clk,CYCLE);
         end
         cycles(5,clk,CYCLE);
         $stop;
